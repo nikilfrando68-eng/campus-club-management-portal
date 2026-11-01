@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: campus-club-portal
+    env: python
+    rootDir: django_app
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py seed_portal"
+    startCommand: "gunicorn campus_portal.wsgi:application"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com,localhost,127.0.0.1"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://*.onrender.com"
+      - key: USE_S3
+        value: "False"

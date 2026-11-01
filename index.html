@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Campus Club Management Portal - Sathyabama Institute of Science and Technology</title>
+  <meta name="description" content="Official Campus Club Management Portal. Register, check requirements, and apply for campus clubs at Sathyabama Institute of Science and Technology.">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" type="image/jpeg" href="assets/college_logo.jpg">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <!-- Left Hero Section -->
+    <aside class="auth-hero" aria-label="College Branding">
+      <div>
+        <div class="auth-hero-header">
+          <img src="assets/college_logo.jpg" alt="Sathyabama Institute Crest" class="college-logo-img" id="college-crest-img">
+          <div class="auth-hero-branding">
+            <h1>Sathyabama</h1>
+            <p>Institute of Science and Technology</p>
+          </div>
+        </div>
+
+        <div class="auth-hero-content">
+          <h2 class="hero-main-title">
+            Campus Club <br>
+            <span class="gradient-text">Management Portal</span>
+          </h2>
+
+          <p class="hero-subtext">
+            Explore premier student clubs, check your eligibility, and apply for memberships — all in one place.
+          </p>
+
+          <div class="hero-feature-grid">
+            <div class="hero-feature-card">
+              <div class="hero-feature-icon">🎓</div>
+              <div class="hero-feature-title">Easy Access</div>
+              <div class="hero-feature-desc">Login with your college Register Number — no separate sign-up needed.</div>
+            </div>
+            <div class="hero-feature-card">
+              <div class="hero-feature-icon">⚡</div>
+              <div class="hero-feature-title">Instant Eligibility</div>
+              <div class="hero-feature-desc">CGPA, attendance, and course prerequisites verified automatically.</div>
+            </div>
+            <div class="hero-feature-card">
+              <div class="hero-feature-icon">📋</div>
+              <div class="hero-feature-title">Track Applications</div>
+              <div class="hero-feature-desc">View your club application status and notifications in real-time.</div>
+            </div>
+            <div class="hero-feature-card">
+              <div class="hero-feature-icon">🏆</div>
+              <div class="hero-feature-title">9 Clubs Available</div>
+              <div class="hero-feature-desc">ACM, SWE, Robotics, Aero, Racing, Cyber Defense, AI/ML, E-Cell & more.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-hero-footer">
+        <div>
+          <span>© 2026 Sathyabama Institute of Science and Technology</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Login Panel -->
+    <main class="auth-panel">
+      <div class="auth-card" id="login-container">
+        <header class="auth-card-header">
+          <h2 class="auth-card-title" id="auth-header-title">Welcome Back 👋</h2>
+          <p class="auth-card-subtitle" id="auth-header-subtitle">
+            Sign in with your college Register Number (44110488 – 44110548)
+          </p>
+        </header>
+
+        <!-- Auth Mode Tabs (Log In vs Set Password) -->
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tab-btn-login" role="tab" aria-selected="true">
+            <span>🔐 Log In</span>
+          </button>
+          <button type="button" class="auth-tab-btn" id="tab-btn-setpass" role="tab" aria-selected="false">
+            <span>🔑 Set Password</span>
+          </button>
+        </div>
+
+        <!-- How to Login Info Box -->
+        <div class="login-info-box" id="auth-info-box">
+          <div class="login-info-icon">ℹ️</div>
+          <div class="login-info-text">
+            <strong>Portal Access</strong>
+            Register Numbers: <b>44110488 – 44110548</b> | Default password: <b style="color:#bfdbfe; font-family:monospace; letter-spacing:0.05em;">789456123</b>
+          </div>
+        </div>
+
+        <!-- Alert Banner for Feedback -->
+        <div id="login-alert" class="auth-alert" role="alert"></div>
+
+        <!-- 1. LOGIN FORM -->
+        <form id="login-form" class="auth-form" novalidate>
+          <div class="form-group">
+            <label for="login-regno" class="form-label">
+              <span>Register Number</span>
+            </label>
+            <div class="input-container">
+              <span class="input-icon-left">🎓</span>
+              <input
+                type="text"
+                id="login-regno"
+                name="registerNumber"
+                class="form-input"
+                placeholder="Enter Register Number"
+                required
+                autocomplete="username"
+                autocapitalize="characters"
+                style="text-transform: uppercase;"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password" class="form-label">
+              <span>Password</span>
+              <span class="form-helper-inline">Default: 789456123</span>
+            </label>
+            <div class="input-container">
+              <span class="input-icon-left">🔒</span>
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                class="form-input"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="input-icon-toggle" id="toggle-password-btn" aria-label="Toggle password visibility">
+                👁️
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row-remember">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember-me" class="checkbox-input" checked>
+              <span>Remember Register No.</span>
+            </label>
+            <button type="button" class="link-btn-text" id="link-switch-to-setpass" style="padding:0; font-size:0.8rem;">
+              Set new password?
+            </button>
+          </div>
+
+          <button type="submit" class="btn-primary-auth" id="btn-login-submit">
+            <span>Log In to Dashboard</span>
+            <span>→</span>
+          </button>
+        </form>
+
+        <!-- 2. SET PASSWORD FORM -->
+        <form id="set-password-form" class="auth-form" style="display: none;" novalidate>
+          <div class="form-group">
+            <label for="setpass-regno" class="form-label">
+              <span>Register Number</span>
+            </label>
+            <div class="input-container">
+              <span class="input-icon-left">🎓</span>
+              <input
+                type="text"
+                id="setpass-regno"
+                name="registerNumber"
+                class="form-input"
+                placeholder="Enter Register Number"
+                required
+                autocomplete="username"
+                autocapitalize="characters"
+                style="text-transform: uppercase;"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="setpass-newpass" class="form-label">
+              <span>New Password</span>
+              <span class="form-helper-inline">Min. 4 characters</span>
+            </label>
+            <div class="input-container">
+              <span class="input-icon-left">🔒</span>
+              <input
+                type="password"
+                id="setpass-newpass"
+                name="newPassword"
+                class="form-input"
+                placeholder="Enter your new password"
+                required
+                autocomplete="new-password"
+              >
+              <button type="button" class="input-icon-toggle" id="toggle-setpass-btn" aria-label="Toggle password visibility">
+                👁️
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="setpass-confirmpass" class="form-label">
+              <span>Confirm Password</span>
+            </label>
+            <div class="input-container">
+              <span class="input-icon-left">🔒</span>
+              <input
+                type="password"
+                id="setpass-confirmpass"
+                name="confirmPassword"
+                class="form-input"
+                placeholder="Re-enter your new password"
+                required
+                autocomplete="new-password"
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary-auth" id="btn-setpass-submit">
+            <span>Save Password & Log In</span>
+            <span>→</span>
+          </button>
+
+          <div style="text-align: center; margin-top: 0.25rem;">
+            <button type="button" class="link-btn-text" id="link-switch-to-login">
+              ← Back to Log In
+            </button>
+          </div>
+        </form>
+
+        <!-- Quick Access Demo Buttons -->
+        <div class="quick-login-section">
+          <div class="quick-login-divider">
+            <span>Quick 1-Click Access</span>
+          </div>
+          <div class="quick-login-grid">
+            <button class="quick-btn quick-btn-student" id="demo-btn-student" type="button" title="Student 44110488">
+              <span class="quick-btn-icon">🧑‍💻</span>
+              <span class="quick-btn-label">Student 1</span>
+              <span class="quick-btn-reg">44110488</span>
+            </button>
+            <button class="quick-btn quick-btn-student" id="demo-btn-student2" type="button" title="Student 44110500">
+              <span class="quick-btn-icon">👩‍🔬</span>
+              <span class="quick-btn-label">Student 2</span>
+              <span class="quick-btn-reg">44110500</span>
+            </button>
+            <button class="quick-btn quick-btn-leader" id="demo-btn-leader" type="button" title="Club Leader">
+              <span class="quick-btn-icon">🏅</span>
+              <span class="quick-btn-label">Club Leader</span>
+              <span class="quick-btn-reg">2022CS0001</span>
+            </button>
+            <button class="quick-btn quick-btn-admin" id="demo-btn-admin" type="button" title="Dean / Admin">
+              <span class="quick-btn-icon">👨‍💼</span>
+              <span class="quick-btn-label">Admin / Dean</span>
+              <span class="quick-btn-reg">ADMIN001</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/mockData.js"></script>
+  <script src="js/mockApi.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/components/loginPage.js"></script>
+</body>
+</html>
